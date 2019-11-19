@@ -1,0 +1,19 @@
+{
+  "name": "falconbnb",
+  "version": "1.0.0",
+  "description": "nodeJS Project using handlebars & mongoDB to recreate AirBnB's Web app",
+  "main": "server.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d0rf47/FalconBnB.git"
+  },
+  "author": "Michael Falconi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d0rf47/FalconBnB/issues"
+  },
+  "homepage": "https://github.com/d0rf47/FalconBnB#readme"
+}
