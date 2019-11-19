@@ -1,0 +1,55 @@
+body{
+    background: #ffffff;
+}
+.divs{
+    
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+#personal
+{
+    padding-bottom: 5rem;
+}
+.border{
+    border: black solid 1px;
+}
+.imgContainer{
+    max-width: 250px;
+    max-height: 250px;
+}
+.color{
+    background: #edefed;
+}
+header{
+    background-origin: padding-box;
+    border-radius: 2px;
+    background: #edefed;
+}
+
+.logo{
+    max-width: 25px;
+    max-height: auto;
+}
+
+#notifications
+{        
+    margin-top: 1vh;
+    padding-bottom: 14%;
+}
+@media only screen and (max-width: 1000px)
+{
+    .center
+    {
+        margin:0 25%;             
+    }
+    .ddClass
+    {
+        text-indent: 0;
+        text-align: center;
+    }
+    #notifications
+    {               
+        margin-top: 0;
+        padding-bottom: 0;       
+    }
+}

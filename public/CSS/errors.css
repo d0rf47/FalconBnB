@@ -1,0 +1,38 @@
+body{
+    background: #ffffff;
+}
+
+div{
+    background: #ffffff;
+}
+.display-5{
+    font-size: 90%;
+}
+#err
+{
+    background-color:red;
+}
+#log{
+    text-align: center;
+    align-self: center;
+}
+
+#LogErr
+{    
+    display: block;
+    text-align: center;
+    
+}
+.loginFail
+{
+    
+    max-width:300px;
+    height: auto;
+    position: relative;
+    display: inline-block;
+    align-items: center;
+}
+.form-control
+{
+    width:100%;
+}

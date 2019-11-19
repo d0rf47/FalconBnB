@@ -1,0 +1,162 @@
+<div class="container-fluid" id="fullPageWrapper">
+    
+    {{!-- main search form --}}
+    <div class="container-fluid" id="searchWrapper">
+        <div id="quickSearch">
+            <form id="homeForm" method="POST" action="">
+                <div class="form-group ">
+                <h4>Quick Search to find the perfect amenities in your perfect destination</h4>
+                <label for="where">Where</label>
+                    <select name="where" id="where" class="mdb-select md-form form-control">
+                        <option value="" disabled selected> Select an Option </option> 
+                        <option value="Toronto">Toronto</option>
+                        <option value="Ottawa">Ottawa</option>
+                        <option value="Vancouver">Vancouver</option>
+                        <option value="Montreal">Montreal</option>
+                        <option value="Saskatoon">Saskatoon</option>
+                    </select>
+                </div>
+                <div class=" formgroup">
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="checkIn">Check-In</label>
+                                <input  id="checkIn" type="date" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="checkOut">Check Out</label>
+                                <input id="checkOut" type="date" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                            <label for="guestNum">Number of Guests</label>
+                                <div class="d-flex">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" 
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guests
+                                        </button>
+                                        <div id="guestNumber" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <label class="dropdown-item" for="adults">Adults
+                                                <input name="adults" type="number" class="form-control " id="adults" placeholder="Adults">
+                                            </label>
+                                            <label class="dropdown-item" for="children">Children
+                                                <input name="children" type="number" class="form-control" id="children" placeholder="Children">
+                                            </label>
+                                            <label class="dropdown-item" for="infant">Infants
+                                            <input name="infant" type="number" class="form-control" id="infant" placeholder="0-3">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    <button id="searchSub" class="btn btn-success btn-block">Search</button>
+            </form>
+    </div>
+</div>
+
+<div class="container" id="promo">
+    <div id="bannerContent" class="container">
+        
+            <div id="banner" class="container">
+                <h3>Explore the World</h3>
+                <div class="row">
+                    <div class="col-sm hover-shadow">
+                        <div>
+                            <img class="banImg img-thumbnail" src="img/stays.jpg">
+                        </div>
+                            <span class="proTag">Stays</span>
+                    </div>
+                    <div class="col-sm hover-shadow ">
+                        <div>
+                            <img src="img/exp.jpg" class="banImg img-thumbnail">
+                        </div>
+                            <span class="proTag">Experiences </span> 
+                    </div>
+                    <div class="col-sm hover-shadow ">
+                        <div>
+                            <img src="img/adventures.jpg" class="banImg img-thumbnail">
+                        </div>
+                            <span class="proTag">Adventures </span>
+                    </div>
+                    <div class="col-sm hover-shadow "> 
+                        <div>
+                            <img src="img/restuar.jpg" class="banImg img-thumbnail">
+                        </div> 
+                            <span class="proTag">Restaurants </span>
+                    </div>
+            </div>
+        </div>
+            <div><h5>Discover your slice of Heaven on Earth</h5></div>
+            <div id="promoContent">
+                <div id="promoTxt"> 
+                    <h6> Traverse the Globe </h6>    
+                        <p>Once in a lifetime Opportunity to travel the world over a year</p>
+                            <br>
+                            <span> <a id="apply" href="">Apply Now <object id="svg" data="img/flight.svg"type="image/svg+xml"></object></a>
+                            </span>
+                </div>
+                <img id="promoImg"  class="img-fluid" src="/img/mainPromo.jpg">
+            </div>    
+        </div>
+    </div>
+
+<div id="about" class="container jumbotron">
+    <h3> Discover AirBnB</h3>
+    <div id="carousel" class="carousel">
+      <h6>The World at your fingertips</h6>
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="img-cont"><div id="c1" class="carStyle"><div class="carousel-caption d-none d-md-block">
+          <h5>The Shire - Hobbiton</h5>
+          <p>Matamata New Zealand - Film location for The Lord of the Rings</p>
+        </div></div></div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="img-cont"><div id="c2" class="carStyle"><div class="carousel-caption d-none d-md-block">
+          <h5>Jakarta Indonesia</h5>
+          <p>Festival of Lights</p>
+        </div> </div></div>        
+      </div>
+
+      <div class="carousel-item">
+        <div class="img-cont">                
+          
+        <video id="carVid" class="carStyle" controls autoplay loop>                            
+                 <source src="media/airbnb.mp4" type="video/mp4">
+                 Your browser does not support the video tag.
+        </video> 
+        <div style="text-align: center"><span id="caption">Keep mouse over video to keep playing</span> </div> 
+        
+      </div>
+      
+    </div>
+  </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    
+  </div>
+</div class="d-flex justify-content-center">
+    <div style="text-align: center;">
+      <button type="button" id="readMore" value="Read More" class="btn btn-primary" onclick="displayModal()"> read more </button>
+    </div>
+</div>
+
+    
+
+
+
+</div>
+

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>AirBnB</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/mainStyle.css">
+    <link rel="stylesheet" href="/CSS/Homes.css">
+    <link rel="stylesheet" href="/CSS/login.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    {{!-- <base href="/"> --}}
+</head>
+<body>
+
+ <header id="mainH">    
+   <img id="logo" src="/img/logo.png">
+{{#if msg}}    <h2 id="title">{{msg}}</h2> {{/if}}
+    <nav class="navbar-nav" id="links">
+      <a class="nav-link" href="/"> Home </a>
+      <a class="nav-link" href="/rooms/rooms"> Find a Room </a>
+      {{#if user}}
+      <a class="nav-link" href="/user/dashboard"> My Account  </a>
+      <a class="nav-link" href="/user/logout"> Logout </a>      
+      <a class="nav-link" href="#" data-toggle="modal" data-target="#BecomeHost" > Become A Host </a>
+      
+      {{#if user.host}}
+      <a class="nav-link" href="/user/dashboard"> My Account  </a>
+      <a class="nav-link" href="/user/logout"> Logout </a>            
+      {{/if}}
+      {{else}}
+      <a class="nav-link" href="#" data-toggle="modal" data-target="#bannerformmodal"> Sign up </a>
+      <a class="nav-link" href="#" data-toggle="modal" data-target="#login" > Log In </a>
+      {{/if}}
+    </nav>  
+</header>
+<!-- modal for register new user -->
+<div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal">
+<div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="ModalTitle">Register</h4>
+                    <button id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                                   
+                </div>
+                    <div class="modal-body">
+                     <form id="requestacallform" method="POST" name="requestacallform" action="/user/registration" class="was-validated">
+
+                                <div class="form-group">
+                                    <div class="input-group">                               
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input id="email1" type="email" class="form-control " placeholder="Email" name="email1" required 
+                                    
+                                    title="Must be a valid Email Address"/>
+                                       <div class="valid-feedback">Valid.</div>
+                                      <div class="invalid-feedback">Please fill out this field.</div>                               
+                                    </div>
+                              </div>
+                              <div class="form-group">
+                                    <div class="input-group">                               
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input id="first_name" type="text" class="form-control" placeholder="First Name" name="first_name" /required>
+                                    <div class="valid-feedback">Valid.</div>
+                                      <div class="invalid-feedback">Please fill out this field.</div>  
+                                    </div>
+                              </div>
+                                <div class="form-group">
+                                    <div class="input-group">                               
+                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                    <input id="last_name" type="text" class="form-control" placeholder="Last Name" name="last_name" /required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>  
+                                    </div>
+                              </div>
+                              <div class="form-group">
+                                    <div class="input-group">                               
+                                    <span class="input-group-addon"><i class="fa fa-group"></i></span>     
+                                    <div id="bday">
+                                    <label for="dob">Enter Birth date</label>
+                                    <input id="dob" type="date" class="form-control"  name="dob" required/>                                     
+                                      <div class="valid-feedback">Valid.</div>
+                                      <div class="invalid-feedback">Please fill out this field.</div>  
+                                    </div>
+                                    </div>
+                              </div>
+                                <div class="form-group">
+                                    <div class="input-group">                               
+                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                    <input id="Newpassword" type="password" class="form-control" placeholder="Password" name="Newpassword" 
+                                      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                                      title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
+                                      <div class="valid-feedback">Valid.</div>
+                                      <div class="invalid-feedback">Please fill out this field.</div>  
+                                    </div>
+                              </div>
+                              <div class="form-group">
+                                    <div class="input-group">                               
+                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                    <input id="Cpassword" type="password" class="form-control" placeholder="Confirm Password" name="Cpassword" required />
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>  
+                                    </div>
+                              </div>
+                              <div class="modal-footer">
+                    <button id='register' type="submit" class="btn btn-success">Submit</button>
+                        </form>                        
+                  </div>
+                
+              </div>          
+            </div>
+        </div>
+      </div>
+    </div>
+<!-- Modal for extra About us Info -->
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">About Us</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Founded in 2008, Airbnb’s mission is to create a world where people can belong through healthy travel that is local, authentic, diverse,
+         inclusive and sustainable. Airbnb uniquely leverages technology to economically empower millions of people around the world to unlock and
+          monetize their spaces, passions and talents and become hospitality entrepreneurs. Airbnb’s accommodation marketplace provides access to
+           7 million unique places to stay in more than 100,000 cities and 191 countries and regions. With Experiences, Airbnb offers unprecedented 
+           access to local communities and interests through 40,000 unique, handcrafted activities run by hosts across 1,000+ cities around the 
+           world. Airbnb’s people-to-people platform benefits all our stakeholders, including hosts, guests, employees and the communities in
+            which we operate.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Log in Modal for registered users -->
+<div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true" id="login">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">      
+         <div class="modal-header">
+                    <h4 class="modal-title" id="ModalTitle">Sign In</h4>
+                    <button id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                
+                </div>
+                    <div class="modal-body">
+                      <div  class="container" >
+                      <form id="log" method="POST" action="/user/login" class="was-validated">                               
+                        <div class="form-group">
+                          <input class="form-control" type="email" id="userName" name="userName"  placeholder="Enter Email" required />    
+                          <div class="valid-feedback">Valid.</div>
+                          <div class="invalid-feedback">Please fill out this field.</div>                                  
+                        </div>
+                        <div class="form-group">
+                          <input class="form-control" type="password" id="Lpassword" name="Lpassword" required placeholder="Enter Password"
+                          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />  
+                          <div class="valid-feedback">Valid.</div>
+                          <div class="invalid-feedback">Please fill out this field.</div>                                      
+                        </div>
+                          <br>
+                        <div id="logButtCont">
+                          <button type="submit" id="LinButt" class="btn btn-success btn-lg">Log In</button>
+                        </div>        
+                      </form>
+                      </div>
+                    </div>  
+          </div>
+      </div>
+  </div> 
+
+<div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="BecomeHost" aria-hidden="true" id="BecomeHost">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">      
+         <div class="modal-header">
+                    <h4 class="modal-title" id="ModalTitle">Become A Host</h4>
+                    <button id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                
+                </div>
+                    <div class="modal-body">
+                      <div  class="container" >
+                      <form id="BecomeAHost" method="POST" action="/user/update" class="was-validated">                               
+                        <div class="form-group">
+                          <label for="city"> City </label>
+                          <input class="form-control" type="text" id="city" name="city"  placeholder="Enter City" required />    
+                          <div class="valid-feedback">Valid.</div>
+                          <div class="invalid-feedback">Please fill out this field.</div>                                  
+                        </div>
+                        <div class="form-group">
+                          <label for="country">Country</label>
+                          <input class="form-control" type="text" id="country" name="country" required placeholder="Enter country" />                          
+                          <div class="valid-feedback">Valid.</div>
+                          <div class="invalid-feedback">Please fill out this field.</div>                                      
+                        </div>
+                        <div class="form-group">
+                          <label for="confirmHost">I Want to Be a Host</label>
+                          <input name="cofirmHost" id="confirmHost" type="checkbox">
+                        </div>
+                          <br>
+                        <div id="logButtCont">
+                          <button type="submit" id="confirmation" class="btn btn-success btn-lg">Confirm</button>
+                        </div>        
+                      </form>
+                      </div>
+                    </div>  
+          </div>
+      </div>
+  </div> 
+
+
+
+    {{{body}}}
+
+<div id="sticky" class="fixed-bottom"><button id="moreInfo" class="btn btn-light" type="button" data-toggle="modal" data-target="infoModal"> 
+ <object id="svg" data="img/icon.svg"type="image/svg+xml"></object>Terms, Privacy, About Us & More </button>
+ </div>
+  
+  <!---footer-->
+ <footer id="mainFoot">
+    <div id="socials" class="container">
+      <h6>Connect with Us</h6>
+      <br>
+        <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="https://www.facebook.com/airbnb/">Facebook</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="https://twitter.com/Airbnb?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Twitter</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="https://www.instagram.com/airbnb/?hl=en">Instagram</a>
+            </li>  
+        </ul>
+    </div>
+    <br>
+    <div>
+      <ul class="nav justify-content-center">
+      <li class="nav-item">
+    <a class="nav-link active" href="#">F.A.Q</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Contact Us</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Host A Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Careers</a>
+  </li>
+</ul></div>
+<!--log in modal -->
+
+
+
+
+<br>
+     <h6> Powered by: Falcon Mobility </h6>
+
+ </footer>
+ 
+ 
+</body>
+<script src="../main.js"></script>
+
+
+
+
+</html>

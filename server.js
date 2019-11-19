@@ -9,7 +9,7 @@ const session = require('express-session');
 const fileup = require("express-fileupload");
 require("dotenv").config({path:'./config/Keys.env'});
 const dbURL = `mongodb+srv://${process.env.mbk}:${process.env.mbTok}@falconbnb-ppoyi.gcp.mongodb.net/FalconBnB?retryWrites=true&w=majority`;
-// const mainRouter =  require('./routes/General')
+const mainRouter =  require('./routes/General')
 // const userRouter =  require('./routes/User');
 // const RoomRouter =  require('./routes/rooms');
 app.use(bodyParser.urlencoded({extended:false}))
@@ -32,7 +32,7 @@ app.use((req,res,next)=>
     res.locals.user = req.session.userInfo;
     next();
 })
-// app.use('/', mainRouter);
+app.use('/', mainRouter);
 // app.use("/user", userRouter);
 // app.use("/rooms", RoomRouter);
 app.engine('handlebars', exphbs());
