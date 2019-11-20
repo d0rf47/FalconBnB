@@ -35,9 +35,10 @@ form input
 {
     float:right;
 }
-#promo
+.displayBox
 {
     margin-top: 2rem;
+    margin-bottom: 4rem;
     padding: 2rem 0;
     background: #ffffff;
 }
@@ -69,6 +70,11 @@ form input
     opacity: 100%;
     border-radius: 9px;
 }
+#promoTxt > h6
+{
+    font-size: 2rem;
+    font-weight: bolder;
+}
 .proTag
 {
     margin-left: 5%;
@@ -80,4 +86,187 @@ form input
 .container > h3
 {
     text-indent: 2.5%;
+}
+#promoContent
+{
+    position: relative;
+    text-align: left;
+}
+#promoTxt
+{
+    position: absolute;
+    top: 17.5%;
+    left: 7.5%;
+    background-color: transparent;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 300px;
+}
+#promoTxt > h6
+{
+    font-size: 2rem;
+    font-weight: bolder;
+}
+#apply
+{
+    color:white;
+    margin-left: 0.1rem;
+}
+#apply:link
+{
+    color:white;
+}
+#apply:visited
+{
+    color:white;
+}
+#apply:hover
+{
+    color:black;
+}
+#apply:active
+{
+    color: black;
+}
+#banner
+{
+    padding: 1rem;
+    margin-bottom: 2rem;    
+}
+#bannerContent  h3
+{    
+    font-weight: bolder;
+    
+}
+#bannerContent  h5
+{
+    text-indent: 1%;
+    font-weight: bold;
+}
+#promoImg
+{
+    border-radius: 25px;
+}
+#about
+{
+    background-color: #ffffff;
+    max-width:95%;
+    border-radius: 5px;
+    object-fit: contain;    
+    max-height: 750px;
+}
+
+.img-cont
+{
+    height:675px;
+    max-width:100%;
+    justify-content: center;
+    position:relative;
+}
+#c1
+{
+    background-image: url("/img/carosel1.jpg");
+}
+#c2
+{
+    background-image: url("/img/car1.jpg");
+}
+#carVid
+{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+.carStyle
+{
+    position:relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-size: cover;
+    height:80%;
+    max-width: 75%;    
+    background-repeat: no-repeat;
+}
+.carosels
+{
+    float:center;
+    position: relative;
+    max-width:675px;
+    height:auto;
+}
+#overlay
+{
+    position: relative;
+    z-index:1;   
+}
+#caption
+{
+    background:black;
+    opacity: 0.75;
+    color: white;
+    font-size: 18px;
+    align-self: center;    
+}
+
+
+
+    
+@media only screen and (min-width: 1500px){
+    .col-sm  div
+    {
+        width: 200px;
+        height: 190px;                        
+    }
+    #banner
+    {        
+        text-align: center;
+    }
+    .container
+    {
+        max-width: 100%;
+    }
+    #promoContent
+    {
+        text-align: center;
+    }
+    #promoTxt
+    {
+        margin-left:10% ;
+    }
+    #apply
+    {
+        margin-left:-25%;
+    }
+    object
+    {
+        margin-left:25%;
+    }
+    #promoContent
+    {
+        width:auto;
+    }
+    #discover
+    {
+        text-align: center;
+    }
+    
+
+}
+
+@media only screen and (max-width: 1000px)
+{
+    #searchWrapper
+    {
+        text-align: center;
+        justify-content: center;
+    }
+    #quickSearch
+    {
+        text-align: left;
+        display: inline-block;
+        width:80%;
+        margin:0 0;        
+    }
+    
 }
