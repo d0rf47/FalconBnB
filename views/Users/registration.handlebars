@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="/CSS/errors.css">
+
+      <div class="display-1 blockquote text-center" >
+      <h1>Error User Registration Failed!</h1>
+      {{#each err}} <div id='err' >{{this}}</div> {{/each}}
+      </div>
+
+<div id='form-cont' class="container">
+    <form id="requestacallform" method="POST" name="requestacallform" action="/user/registration" class="was-validated">
+
+                                <div class="form-group">
+                                    <div class="input-group">                               
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input id="email1" type="email" class="form-control " placeholder="Email" name="email1" required 
+                                    
+                                    title="Must be a valid Email Address"/>
+                                       <div class="valid-feedback">Valid.</div>
+                                      <div class="invalid-feedback">Please fill out this field.</div>                               
+                                    </div>
+                              </div>
+                              <div class="form-group">
+                                    <div class="input-group">                               
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input id="first_name" type="text" class="form-control" placeholder="First Name" name="first_name"/ required>
+                                    <div class="valid-feedback">Valid.</div>
+                                      <div class="invalid-feedback">Please fill out this field.</div>  
+                                    </div>
+                              </div>
+                                <div class="form-group">
+                                    <div class="input-group">                               
+                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                    <input id="last_name" type="text" class="form-control" placeholder="Last Name" name="last_name"/ required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>  
+                                    </div>
+                              </div>
+                              <div class="form-group">
+                                    <div class="input-group">                               
+                                    <span class="input-group-addon"><i class="fa fa-group"></i></span>     
+                                    <div id="bday">
+                                    <label for="dob">Enter Birth date</label>
+                                    <input id="dob" type="date" class="form-control"  name="dob" required/>                                     
+                                      <div class="valid-feedback">Valid.</div>
+                                      <div class="invalid-feedback">Please fill out this field.</div>  
+                                    </div>
+                                    </div>
+                              </div>
+                                <div class="form-group">
+                                    <div class="input-group">                               
+                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                    <input id="Newpassword" type="password" class="form-control" placeholder="Password" name="Newpassword" 
+                                      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                                      title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
+                                      <div class="valid-feedback">Valid.</div>
+                                      <div class="invalid-feedback">Please fill out this field.</div>  
+                                    </div>
+                              </div>
+                              <div class="form-group">
+                                    <div class="input-group">                               
+                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                    <input id="Cpassword" type="password" class="form-control" placeholder="Confirm Password" name="Cpassword" required />
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>  
+                                    </div>
+                              </div>
+                              <div class="modal-footer">
+                    <button id='register' type="submit" class="btn btn-success">Submit</button>
+                        </form>                        
+                  </div>
+</div>

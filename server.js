@@ -9,9 +9,9 @@ const session = require('express-session');
 const fileup = require("express-fileupload");
 require("dotenv").config({path:'./config/Keys.env'});
 const dbURL = `mongodb+srv://${process.env.mbk}:${process.env.mbTok}@falconbnb-ppoyi.gcp.mongodb.net/FalconBnB?retryWrites=true&w=majority`;
-const mainRouter =  require('./routes/General')
-// const userRouter =  require('./routes/User');
-// const RoomRouter =  require('./routes/rooms');
+const mainRouter =  require('./Routes/General')
+const userRouter =  require('./routes/User');
+const RoomRouter =  require('./Routes/rooms');
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
@@ -33,8 +33,8 @@ app.use((req,res,next)=>
     next();
 })
 app.use('/', mainRouter);
-// app.use("/user", userRouter);
-// app.use("/rooms", RoomRouter);
+app.use("/user", userRouter);
+app.use("/rooms", RoomRouter);
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 

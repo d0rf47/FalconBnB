@@ -1,0 +1,154 @@
+<link rel="stylesheet" href="/CSS/Dashboard.css">
+<link rel="stylesheet" href="/CSS/home.css">
+{{#if err}}
+
+<link rel="stylesheet" href="/CSS/errors.css">
+    <div id="LogErr">
+    <div id="err" class="display-1 blockquote text-center">
+            <p>{{err}}</p>                     
+        </div>
+                    <div class="loginFail">
+                      <form id="log" method="POST" action="/logIn" class="was-validated">                               
+                        <div class="form-group">
+                          <input class="form-control" type="email" id="userName" name="userName"  placeholder="Enter Email" required />    
+                          <div class="valid-feedback">Valid.</div>
+                          <div class="invalid-feedback">Please fill out this field.</div>                                  
+                        </div>
+                        <div class="form-group">
+                          <input class="form-control" type="password" id="Lpassword" name="Lpassword" required placeholder="Enter Password"
+                          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />  
+                          <div class="valid-feedback">Valid.</div>
+                          <div class="invalid-feedback">Please fill out this field.</div>                                      
+                        </div>
+                          <br>
+                        <div id="logButtCont">
+                          <button type="submit" id="LinButt" class="btn btn-success btn-lg">Log In</button>
+                        </div>        
+                      </form>
+                    </div>  
+    </div>
+{{/if}}
+
+<div id="welcome" class="display-1 blockquote text-center">
+<h1>Welcome  
+    {{#if user }}
+    {{user.email}}
+    {{else}} Please Log in to Access your Profile</h1>
+    {{/if}}
+<p> What can we help you find today? </p>
+</div>
+
+<section class="jumbotron">
+    <div id="banner" class="container">
+         <div class="row">
+    <div class="col-sm hover-shadow">
+        <div>
+        <img class="banImg img-thumbnail" src="/img/stays.jpg">
+    </div><span class="proTag">Stays</span></div>
+      <div class="col-sm hover-shadow">
+        <div><img src="/img/exp.jpg" class="banImg img-thumbnail">
+    </div> <span class="proTag">Experiences </span> </div>
+    <div class="col-sm hover-shadow"><div>
+      <img src="/img/adventures.jpg" class="banImg img-thumbnail">
+    </div> <span class="proTag">Adventures </span></div>
+    <div class="col-sm hover-shadow"> <div>
+        <img src="/img/restuar.jpg" class="banImg img-thumbnail">
+    </div> <span class="proTag">Restaurants </span></div>
+  </div>
+</div> 
+</section>
+
+<section id="uProfile" class="container">
+    <div class="row divs">
+      <div class="col divs container border" id="userDetails" > 
+        <div id='Uid' class='text-center color'>
+            {{user.first}} {{user.last}}
+        </div>
+            <div id='profileContainer' class='d-flex justify-content-center'>
+                <div class="imgContainer hover-shadow" >
+                    <img id="profilePic" src="/img/adventures.jpg"  class="img-thumbnail mw-100">
+                </div>        
+            </div>
+        <div class="divs border">
+            <header><h3 class="display-5"> Verified Info <object id="svg" data="/img/verified.svg"type="image/svg+xml"></object> </H3></header>
+            <div id='bio' class="divs">
+                {{#if user}}
+                <div>
+                Name: {{user.first}} {{user.last}}
+                 </div>
+                <div>
+                Born: {{user.dob}}
+                </div>
+                <div>
+                    <h2>Location</h2>
+                    Country : {{user.location.country}} 
+                    City    : {{user.location.city}}
+                </div>
+                {{else}}
+                <div align="center">
+                <p>No verified Info </p>
+                </div>
+            <div class="d-flex justify-content-center"><button class="btn btn-primary btn-lg">Verify Account</button></div>
+                {{/if}}
+            </div>
+            <div class="d-flex justify-content-center"><button class="btn btn-info btn-lg">Edit Profile</button></div>
+        </div>
+        <div class="divs border">
+            <header><h3 class="display-5">Quick Links</h3> </header>
+            <nav>
+                <ul class="nav flex-column  mw-100">
+                    <div class="row">
+                        <li class="nav-item col-lg center">
+                        <a class="nav-link active" href="/Rooms/rooms"> <object id="svg" data="/img/globe.svg"type="image/svg+xml"></object> 
+                        Quick Trips</a>
+                        </li>
+                        <li class="nav-item col-lg center">
+                        <a class="nav-link" href="#">  <object id="svg" data="/img/host.svg"type="image/svg+xml"></object>
+                        Host a Home</a>
+                        </li>
+                        <li class="nav-item col-lg center">
+                        <a class="nav-link" href="https://www.airbnb.ca/help/article/2503/what-is-airbnb-and-how-does-it-work"> 
+                        <object id="svg" data="/img/about.svg"type="image/svg+xml"></object>What is Falcon B&B </a>
+                        </li>
+                        <li class="nav-item col-lg center">
+                        <a class="nav-link" href="https://www.airbnb.ca/help/home"><object id="svg" data="/img/faq.svg"type="image/svg+xml"></object>
+                         Help Center</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </div>
+<div id='bio' class="col-lg-8">
+    <div id="personal" class="divs border">
+        <header>
+            <h3> Welcome to your FalconB&B Page </h3>
+             </header>
+        <p style="display:inline; margin-left:5%">This is your Personal Dashboard </p>
+        <p>Here is where you can find and edit all your personal information</p>
+        <dl class="row">
+        Check your messages, view upcoming trip information, and find travel inspiration all from your dashboard. Before booking your first stay, make sure to:
+        <dt class="col-sm-9 center"> <a href=""> Complete Your Profile <object id="svg" data="/img/reg.svg"type="image/svg+xml"></object> </a> </li>
+                <dd class="ddClass">Upload a photo and write a short bio to help hosts get to know you before inviting you into their home. </dd>
+        <dt class="col-sm-9 center"> <a href="">Provide ID <object id="svg" data="/img/id.svg"type="image/svg+xml"></object></a></dt>
+                <dd class="ddClass">Some hosts require guests to provide ID before booking. Get a head start by doing it now. </dd>
+        <dt class="col-sm-9 center" > <a href="">Learn How to Book a Place <object id="svg" data="/img/book.svg"type="image/svg+xml"></object> </a> </dt>
+            <dd class="ddClass">Get ready to search for the perfect place, contact hosts, and prepare for a memorable trip. </dd>
+        </dl>
+    </div>
+    <div id="notifications" class="divs border">
+        <header class="blockquote display-4"> <h3>Notifications <object id="svg" data="/img/notification.svg"type="image/svg+xml"></object> </h3>
+        </header>
+
+        <dl class="row">        
+        <dt class="col-sm-9 center"> <a href="">Inbox <object id="svg" data="/img/mail.svg"type="image/svg+xml"></object> </a> </dt>
+                <dd class="col-sm-9 center">Messages to & from hosts </dd>
+        <dt class="col-sm-9 center">  <a href=""> Connect with Social Media  <object id='svg' class="logo" data="/img/facebook.svg"type="image/svg+xml"></object> </a></dt>
+                <dd class="col-sm-9 center">Share your Experiences with the world</dd>
+        <dt class="col-sm-9 center" > <a href=""> <object id="svg" data="/img/help.svg"type="image/svg+xml"></object> FAQ  </a> </dt>
+            <dd class="col-sm-9 center">Find all the answers you need & more! </dd>
+        </dl>
+    </div>
+</div>
+</div>
+</section>

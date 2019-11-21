@@ -31,12 +31,14 @@ form input{
     float:right;
 }
 
-#promo{        
-    padding: 2rem;
+#promo{
+    
+    background:transparent;
+    padding:2rem;
+
 }
 #bannerContent{
     border:black solid 1px;
-    background: #ffffff;
 }
 #bannerContent > h3{
     

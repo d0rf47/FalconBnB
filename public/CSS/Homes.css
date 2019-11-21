@@ -41,6 +41,7 @@ form input
     margin-bottom: 4rem;
     padding: 2rem 0;
     background: #ffffff;
+    border-radius: 5px;
 }
 
 .row
@@ -83,7 +84,7 @@ form input
 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.container > h3
+.container  h3
 {
     text-indent: 2.5%;
 }
@@ -134,7 +135,7 @@ form input
     padding: 1rem;
     margin-bottom: 2rem;    
 }
-#bannerContent  h3
+h3
 {    
     font-weight: bolder;
     
@@ -150,8 +151,8 @@ form input
 }
 #about
 {
-    background-color: #ffffff;
-    max-width:95%;
+    text-align: center;
+    background-color: #ffffff;    
     border-radius: 5px;
     object-fit: contain;    
     max-height: 750px;
@@ -171,15 +172,22 @@ form input
 #c2
 {
     background-image: url("/img/car1.jpg");
+    background-size:cover;
 }
-#carVid
+
+.center 
 {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+     margin: 0 auto;
+     width:675px;
+}
+
+.carousel-indicators
+{
+    color:black;
+}
 .carStyle
 {
+    border:solid red 1px;
     position:relative;
     left: 50%;
     transform: translateX(-50%);
@@ -188,13 +196,7 @@ form input
     max-width: 75%;    
     background-repeat: no-repeat;
 }
-.carosels
-{
-    float:center;
-    position: relative;
-    max-width:675px;
-    height:auto;
-}
+
 #overlay
 {
     position: relative;
@@ -250,7 +252,19 @@ form input
     {
         text-align: center;
     }
-    
+    #about, .carousel-item , .img-cont ,.carStyle
+    {
+        border:black solid 1px;
+        max-height: unset;        
+        padding:3rem;
+        max-width: unset;        
+    }
+
+    .center
+    {
+        width:100%;
+        padding: 2%;
+    }
 
 }
 
