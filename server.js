@@ -26,7 +26,8 @@ mongoose.connect(dbURL,{ useUnifiedTopology: true, useNewUrlParser: true })
 })
 
 app.use(session({secret:"Key"}));
-
+app.use(fileup());
+app.use(methodOverride('_method'));
 app.use((req,res,next)=>
 {
     res.locals.user = req.session.userInfo;

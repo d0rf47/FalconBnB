@@ -11,6 +11,10 @@ router.get("/rooms", (req,res)=>{
     })    
 })
 
+router.get('/addRoom', (req,res)=>
+{
+    res.render('Rooms/AddRoom');
+})
 router.post('/addRoom', (req,res)=>
 {
            
