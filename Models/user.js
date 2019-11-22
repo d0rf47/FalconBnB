@@ -1,7 +1,7 @@
 //*******User Model**********//
 const mongoose =  require('mongoose');
 const bcrypt = require('bcryptjs');
-
+mongoose.set('useFindAndModify', false);
 const Schema =  mongoose.Schema;
 
 

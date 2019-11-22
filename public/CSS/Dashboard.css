@@ -8,7 +8,7 @@ body{
 }
 #personal
 {
-    padding-bottom: 5rem;
+    padding-bottom: 8.3rem;
 }
 .border{
     border: black solid 1px;
@@ -34,7 +34,8 @@ header{
 #notifications
 {        
     margin-top: 1vh;
-    padding-bottom: 14%;
+    padding-bottom: 5rem;
+    
 }
 @media only screen and (max-width: 1000px)
 {

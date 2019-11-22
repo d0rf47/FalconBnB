@@ -8,7 +8,7 @@ const nodemailer = require('nodemailer');
 const sgTransport = require('nodemailer-sendgrid-transport');
 const User  = require('../Models/User');
 const mongoose =  require('mongoose');
-
+let errors =[];
 
 //used to validate Sengrid Account
 const options  = {
@@ -36,8 +36,8 @@ router.get("/registration", (req,res) =>
 })
 
 router.post('/registration', (req,res)=>{
-    const errors =[];
-       
+    
+    const errs =[];
     const msg = `Welcome ${req.body.first_name} ${req.body.last_name} to Falcon BnB your Account UserName is : ${req.body.email1}`
     const email = {
         to: `${req.body.email1}`,
@@ -69,6 +69,7 @@ router.post('/registration', (req,res)=>{
     
     if(errors.length == 0)
     {    
+        
         const newUserData = 
         {
         email: req.body.email1,
@@ -88,26 +89,19 @@ router.post('/registration', (req,res)=>{
             if (err) 
             { 
                 console.log(err) 
-            }
+            } 
             
         });   
         })
         .catch((err)=>{
-            errors.push("Email Already Used");            
-            console.log(`User not added Error: ${errors}`)
-            console.log(errors.length)
-            res.render("Users/registration",
-            {
-                err:errors   
-            } );   
-        })  
-        if(errors.length > 0)  
-        {
-         
-            console.log("test")
-        }
-    
+            errors.push(err);            
+            console.log(`User not added Error: ${errors}`)                
+            res.redirect('registration')
+            
+        })              
     }
+    errors=[];    
+    res.redirect("dashboard")           
 })
 
 router.get("/dashboard", (req,res)=>{
@@ -188,43 +182,32 @@ router.get("/update", (req,res)=>
 })
 router.post("/update", (req,res)=>
 {
+    
+    let host={host:false};
     let user  =  req.session.userInfo;
-    User.findOne({email:user.email})
-            .then(doc=>
-                {
-                    console.log(`${doc.location.country}`)
-                    let city    =  req.body.city;
-                    let country =  req.body.country;
-                    let host    =  req.body.cofirmHost;
-
-                    if(host == 'on')
+    console.log(`${user.email}`)
+    let filter = {email:user.email}
+    let city  = {city : req.body.city};
+    let country = {country:req.body.country};
+    if(req.body.host = "on")
     {
-
-
-
-        User.findByIdAndUpdate(user.id)
-        doc.location.city   = city;
-        doc.location.country= country;
-        doc.host = true;
-        console.log(`Updated ${doc.location.city} ${doc.location.country} added!`)               
-        doc.save()
-        .then(()=>
-        {
-            console.log(`Updated ${doc.location.city} ${doc.location.country} added!`)               
-            
-        })
-        .catch((err)=>{
-            console.log(`Update Failed Error: ${err}`)            
-        })    
-              
-    //console.log(`${user.location.city}`)
-
-    console.log(`${city}   ${country}  ${host}`);
-    
-        res.redirect('/user/dashboard');
+        host.host=true;
     }
-})    
     
+    User.findOneAndUpdate(filter,host,
+            
+        {new:true}
+        
+
+    ).then(()=>
+    {
+        console.log(`update successful : ${host.host}`)
+    })
+       
+    //console.log(`${city}   ${country}  ${host}`);    
+    res.redirect('dashboard');
+    
+     
 })
 
 module.exports = router;
