@@ -14,7 +14,8 @@ const validatePass = (pass) =>{
     return re.test(pass);
 }
 
-const NewUserSchema = new Schema({
+const NewUserSchema = new Schema
+({
 
     email:
     {     

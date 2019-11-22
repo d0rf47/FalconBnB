@@ -1,9 +1,16 @@
 <link rel="stylesheet" href="/CSS/rooms.css">
+<link rel="stylesheet" href="/CSS/errors.css">
+{{#if errors}}
+<div>
+    {{errors}}
+    
+</div>
+{{/if}}
 <div class="container" id="mainWrapper">
     <div class="container" id="formContainer">
         <div class="container" id="InnerForm">
             <h1>Add New Room</h1>
-            <form id="AddRoom">
+            <form id="AddRoom" method="POST" action="/Rooms/addRoom" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="Rtitle"> Enter Destination Title </label>
                     <textarea class="form-control" id="Rtitle" name="Rtitle" placeholder="Enter Title"></textarea>
@@ -23,7 +30,11 @@
                 </div>
                 <div class="form-group">
                     <label for="Rpic">Upload Photo</label> <br>
-                    <input type="file" >                    
+                    <input type="file" id="Rpic" name="Rpic">                    
+                </div>
+
+                <div>
+                    <input type="submit" value="Add Room">
                 </div>
             </form>
         </div>

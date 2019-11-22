@@ -1,2 +1,29 @@
-<link rel="stylesheet" href="/CSS/rooms.css">
-<h2>Rooms</h2>
+<link rel="stylesheet" href="/CSS/Room.css">
+</div>
+  <div id="vidCont" class="embed-responsive embed-responsive-16by9">  
+  <video class="video-fluid" autoplay loop muted>    
+        <source src="https://a0.muscache.com/v/b9/40/b940906f-ab57-5fdd-b26a-6833c75cc9c1/b940906fab575fddb26a6833c75cc9c1_1500k_1.mp4?impolicy=high_quality" type="video/mp4" />
+      </video>
+</div>
+<div id="contentCont">
+<!-- Grid row -->
+
+<p id="dest">Hot Destinations Recommended for you</p>
+
+<section id="roomsMain" class="container">
+    {{#each rooms}}
+    <div class="row">
+        <div class="container room col-sm">
+            <div class="container-fluid img-container"> 
+                <img src="/uploads/{{this.roomPic}}" class="roomPics">
+            </div>
+                <div>
+                    <h1>{{this.title}} </h1>
+                    <h2>{{this.desc}}  </h2>
+                    <h3>{{this.price}}  </h3>   
+                    <h4>{{this.location}} </h4> 
+                </div>
+        </div>
+    </div>
+    {{/each}}
+</section>
