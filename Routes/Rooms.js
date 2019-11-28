@@ -6,6 +6,8 @@ const router =  express.Router();
 const Room = require('../Models/Room');
 const path = require("path");
 const rates = [4.9]
+const authAccess = require('../middleWare/Authentication');
+
 router.get("/rooms", (req,res)=>
 {    
     Room.find()
@@ -21,7 +23,7 @@ router.get("/rooms", (req,res)=>
     
 })
 
-router.get('/addRoom', (req,res)=>
+router.get('/addRoom',authAccess, (req,res)=>
 {
     res.render('Rooms/AddRoom');
 })
@@ -82,7 +84,7 @@ router.post('/addRoom', (req,res)=>
 
                         });
                 })  
-                .catch((err=>console.log(`Err: ${err}`)));
+                .catch((err=>console.log(`Err: ${err}`)));//look here too many brackets
     }
     
 });
