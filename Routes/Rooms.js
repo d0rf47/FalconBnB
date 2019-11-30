@@ -122,20 +122,22 @@ router.get('/Update/:id', authAccess, (req,res)=>
         .catch(err=>console.log(`${err}`))
 })
 router.post('/Update/:id', authAccess, (req,res)=>
-{
+{    
+    let filter = req.params.id;
     let x = Math.random() * 10; 
     Room.findById(req.params.id)
         .then((room)=>
         {
+            
             room.title=      req.body.Rtitle;
             room.price=      req.body.pricePer;
             room.desc=      req.body.Rdesc;
             room.location=   req.body.Rlocation;
             
-            if(req.body.Rpic == undefined)
+            if(req.files == null)
             {
                 room.roomPic = room.roomPic;
-                room.save()
+                Room.findByIdAndUpdate(filter, room, {new:true})
                     .then(()=>
                     {
                         Room.find({owner:req.session.userInfo.email})
@@ -152,17 +154,22 @@ router.post('/Update/:id', authAccess, (req,res)=>
             }
             else
             {
-                room.save()
+                
+                Room.findByIdAndUpdate(filter, room, {new:true})
                 .then(room=>
                     {
+                        
                         req.files.Rpic.name = `db_${x}${room._id}${path.parse(req.files.Rpic.name).ext}`
     
                         req.files.Rpic.mv(`public/uploads/${req.files.Rpic.name}`)
                             .then(()=>
                             {
-                                Room.findByIdAndUpdate(room._id,
+                                Room.findByIdAndUpdate(filter,
                                     {
                                         roomPic:req.files.Rpic.name
+                                    },
+                                    {
+                                        new:true
                                     })
                                     .then(()=>
                                     {
@@ -179,8 +186,8 @@ router.post('/Update/:id', authAccess, (req,res)=>
                                     .catch(err=>console.log(`${err}`))
     
                             });
-                    })        
-            }
+                        })        
+                }
         })
         .catch(err=>console.log(`${err}`))        
 })
