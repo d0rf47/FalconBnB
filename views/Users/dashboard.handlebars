@@ -98,13 +98,14 @@
             <nav>
                 <ul class="nav flex-column  mw-100">
                     <div class="row">
-                        <li class="nav-item col-lg center">
-                        <a class="nav-link active" href="/Rooms/rooms"> <object id="svg" data="/img/globe.svg"type="image/svg+xml"></object> 
-                        Quick Trips</a>
+                        <li class="nav-item col-lg center">                            
+                            <form method="POST" action="/Rooms/Edit/:id">                            
+                        <input class="btn nav-link" value="Edit Rooms" type="submit" style="color:#007bff; display:inline;">                               
+                        </form>                                                              
                         </li>
                         <li class="nav-item col-lg center">
-                        <a class="nav-link" href="#">  <object id="svg" data="/img/host.svg"type="image/svg+xml"></object>
-                        Host a Home</a>
+                        <a class="nav-link" href="#"> <object id="svg" data="/img/globe.svg"type="image/svg+xml"></object>           
+                        Quick Trips</a>
                         </li>
                         <li class="nav-item col-lg center">
                         <a class="nav-link" href="https://www.airbnb.ca/help/article/2503/what-is-airbnb-and-how-does-it-work"> 
@@ -153,15 +154,3 @@
 </div>
 </section>
 
-{{#if user.host}}
-    <div id="admin" class="container">
-        <h6>This is your Administrator Panel</h6>
-            <p> Here you can Edit your Rooms </p>
-        <div id="editForm">
-            <form>
-                <input type="submit" value="Edit Rooms">
-            </form>
-        </div>
-    </div>
-
-    {{/if}}

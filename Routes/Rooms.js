@@ -8,6 +8,7 @@ const path = require("path");
 const rates = [4.9]
 const authAccess = require('../middleWare/Authentication');
 
+
 router.get("/rooms", (req,res)=>
 {    
     Room.find()
@@ -90,7 +91,21 @@ router.post('/addRoom', (req,res)=>
     
 });
 
-router.get('/Edit')
+router.get('/Edit/:id', (req,red)=>
+{
+    res.render('Rooms/AdminRooms')
+})
+router.post('/Edit/:id', (req,res)=>
+{
+    Room.find({owner:req.session.userInfo.email})
+        .then((rooms)=>
+        {
+            res.render('Rooms/AdminRooms',
+            {
+                rooms:rooms
+            })
+        })
+})
 
 
 module.exports = router;

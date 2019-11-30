@@ -1,5 +1,6 @@
 body{
     background: #ffffff;
+    overflow-x: hidden;
 }
 .divs{
     
@@ -42,6 +43,13 @@ header{
     text-align: center;
     border:black solid 1px;
 }
+.roomPics
+{
+    max-width: 500px;
+    width:auto;
+    height: auto;
+}
+
 
 @media only screen and (max-width: 1000px)
 {

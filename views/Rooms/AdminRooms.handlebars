@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/CSS/Room.css">
+<section id="roomsMain" class="container">
+    {{#each rooms}}
+    <div class="row">
+        <div class="container room col-sm">
+            <div class="container-fluid img-container"> 
+                <img src="/uploads/{{this.roomPic}}" class="roomPics">
+            </div>
+                <div>
+                    <h1>{{this.title}} </h1>
+                    <h2>{{this.desc}}  </h2>
+                    <h3>{{this.price}}  </h3>   
+                    <h4>{{this.location}} </h4> 
+                </div>
+        </div>
+    </div>
+    {{/each}}
+</section>
