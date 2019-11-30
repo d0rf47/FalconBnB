@@ -1,17 +1,16 @@
-*****LEFT OFF USER UPDATE ROOM PIC NOT WORKING ALL OTHER DATA WORKING*******
 
 TO DOO
-1- ADD PROTECTED ROUTES,
+1- ADD PROTECTED ROUTES, DONE
     --> Fix user routes for Non Admin User
     --> USERS SHOULD NOT BE ABLE TO ACCESS ROUTES BY TYPING THEM IN WITHOUT CORRECT CREDENTIALS
-2-Add Edit room
+2-Add Edit room 
     --> Exta component of dashboard page
             --> Admin section
-                --> Add room    
-                --> Edit room   
-                --> Delete room
+                --> Add room    DONE
+                --> Edit room   DONE
+                --> Delete room TO DO
 3- Search for room  
-    --> Update home page form to display list of rooms (location)
+    --> Update home page form to display list of rooms (location) DONE NEED TO STYLE
 4- Book a Room
 
 5- Update CSS

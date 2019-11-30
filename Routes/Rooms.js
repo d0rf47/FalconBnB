@@ -192,4 +192,24 @@ router.post('/Update/:id', authAccess, (req,res)=>
         .catch(err=>console.log(`${err}`))        
 })
 
+
+router.post('/delete/:id', authAccess, (req,res)=>
+{
+    Room.findByIdAndDelete(req.params.id, function(err)
+    {
+        if(err)console.log(`Del Err : ${err}`)
+
+        console.log(`Room Deleted`);
+    })
+    Room.find({owner:req.session.userInfo.email})
+        .then((rooms)=>
+        {
+            res.render('Rooms/AdminRooms',
+            {
+                rooms:rooms
+            })
+        })
+        .catch(err=>console`${err}`)
+})
+
 module.exports = router;
