@@ -36,7 +36,8 @@ router.post('/addRoom', (req,res)=>
         title:req.body.Rtitle,
         price:req.body.pricePer,
         desc:req.body.Rdesc,
-        location:req.body.Rlocation
+        location:req.body.Rlocation,
+        owner:req.session.userInfo.email
     }
     if(req.files ==  null)
     {
@@ -89,6 +90,7 @@ router.post('/addRoom', (req,res)=>
     
 });
 
+router.get('/Edit')
 
 
 module.exports = router;

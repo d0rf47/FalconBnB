@@ -3,7 +3,7 @@
 
 const authAccess = (req,res,next)=>
 {
-    if(req.session.user==null)
+    if(req.session.userInfo.host!=true)
     {
         res.redirect("/")
     }

@@ -34,8 +34,11 @@ const NewRoomSchema = new Schema
     {
         type:Date,
         default: Date.now()
+    },
+    owner:
+    {
+        type:String
     }
-
 })
 
 const RoomSchema = mongoose.model('Rooms', NewRoomSchema);

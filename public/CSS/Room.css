@@ -3,6 +3,7 @@ html, body
     max-width: 100%;
     overflow-x: hidden;
     background:white;
+    text-align: center;
 }
 #title
 {        
@@ -50,5 +51,4 @@ h3
     max-width: 500px;
     width:auto;
     height: auto;
-
 }

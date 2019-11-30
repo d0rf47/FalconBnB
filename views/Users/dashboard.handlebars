@@ -79,9 +79,9 @@
                 <div>
                 Born: {{user.dob}}
                 </div>
-                <div>
+                <div id="geoData">
                     <h2>Location</h2>
-                    Country : {{user.location.country}} 
+                    Country : {{user.location.country}}  <br>
                     City    : {{user.location.city}}
                 </div>
                 {{else}}
@@ -152,3 +152,16 @@
 </div>
 </div>
 </section>
+
+{{#if user.host}}
+    <div id="admin" class="container">
+        <h6>This is your Administrator Panel</h6>
+            <p> Here you can Edit your Rooms </p>
+        <div id="editForm">
+            <form>
+                <input type="submit" value="Edit Rooms">
+            </form>
+        </div>
+    </div>
+
+    {{/if}}
