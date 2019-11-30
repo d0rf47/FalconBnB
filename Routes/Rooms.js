@@ -29,7 +29,7 @@ router.get('/addRoom',authAccess, (req,res)=>
     res.render('Rooms/AddRoom');
 })
 
-router.post('/addRoom', (req,res)=>
+router.post('/addRoom',authAccess, (req,res)=>
 {
     const errors = [];
     const newRoomData = 
@@ -91,11 +91,11 @@ router.post('/addRoom', (req,res)=>
     
 });
 
-router.get('/Edit/:id', (req,red)=>
+router.get('/Edit/:id',authAccess, (req,res)=>
 {
     res.render('Rooms/AdminRooms')
 })
-router.post('/Edit/:id', (req,res)=>
+router.post('/Edit/:id' ,authAccess, (req,res)=>
 {
     Room.find({owner:req.session.userInfo.email})
         .then((rooms)=>
@@ -105,7 +105,84 @@ router.post('/Edit/:id', (req,res)=>
                 rooms:rooms
             })
         })
+        .catch(err=>console`${err}`)
 })
-
+router.get('/Update/:id', authAccess, (req,res)=>
+{
+    const message = "Edit the Details you want to change";
+    Room.findById(req.params.id)
+        .then((room)=>
+        {            
+            res.render('Rooms/AddRoom',
+            {
+                message : message,
+                roomDoc : room
+            })
+        })
+        .catch(err=>console.log(`${err}`))
+})
+router.post('/Update/:id', authAccess, (req,res)=>
+{
+    let x = Math.random() * 10; 
+    Room.findById(req.params.id)
+        .then((room)=>
+        {
+            room.title=      req.body.Rtitle;
+            room.price=      req.body.pricePer;
+            room.desc=      req.body.Rdesc;
+            room.location=   req.body.Rlocation;
+            
+            if(req.body.Rpic == undefined)
+            {
+                room.roomPic = room.roomPic;
+                room.save()
+                    .then(()=>
+                    {
+                        Room.find({owner:req.session.userInfo.email})
+                            .then((rooms)=>
+                            {
+                                res.render('Rooms/AdminRooms',
+                                {
+                                    rooms:rooms
+                                })
+                            })
+                            .catch(err=>console`${err}`)
+                    }) 
+                    .catch(err=>console.log(`${err}`))
+            }
+            else
+            {
+                room.save()
+                .then(room=>
+                    {
+                        req.files.Rpic.name = `db_${x}${room._id}${path.parse(req.files.Rpic.name).ext}`
+    
+                        req.files.Rpic.mv(`public/uploads/${req.files.Rpic.name}`)
+                            .then(()=>
+                            {
+                                Room.findByIdAndUpdate(room._id,
+                                    {
+                                        roomPic:req.files.Rpic.name
+                                    })
+                                    .then(()=>
+                                    {
+                                        Room.find({owner:req.session.userInfo.email})
+                                            .then((rooms)=>
+                                            {
+                                                res.render('Rooms/AdminRooms',
+                                                {
+                                                    rooms:rooms
+                                                })
+                                            })
+                                            .catch(err=>console`${err}`)
+                                    }) 
+                                    .catch(err=>console.log(`${err}`))
+    
+                            });
+                    })        
+            }
+        })
+        .catch(err=>console.log(`${err}`))        
+})
 
 module.exports = router;

@@ -6,27 +6,43 @@
     
 </div>
 {{/if}}
+
+{{#if message}}
+    <div>
+        {{message}}
+    </div>
+{{/if}}    
 <div class="container" id="mainWrapper">
     <div class="container" id="formContainer">
         <div class="container" id="InnerForm">
             <h1>Add New Room</h1>
+            {{#if roomDoc}}
+            <form id="AddRoom" method="POST" action="/Rooms/Update/{{roomDoc._id}}/?_method=PUT" enctype="multipart/form-data">      
+            {{else}}
             <form id="AddRoom" method="POST" action="/Rooms/addRoom" enctype="multipart/form-data">
+            {{/if}}
                 <div class="form-group">
                     <label for="Rtitle"> Enter Destination Title </label>
-                    <textarea class="form-control" id="Rtitle" name="Rtitle" placeholder="Enter Title"></textarea>
+                    <textarea class="form-control" id="Rtitle" name="Rtitle" placeholder="Enter Title">
+                        {{#if roomDoc}} {{roomDoc.title}}  {{else}}  {{/if}}
+                    </textarea>
                 </div>
                 <div class="form-group">
                     <label  for="pricePer">Enter Price Per Stay</label>
-                    <input placeholder="Enter Price" class="form-control" type="number" id="pricePer" name="pricePer">
+                    <input placeholder="Enter Price" class="form-control" type="number" id="pricePer" name="pricePer" 
+                        {{#if roomDoc}} value="{{roomDoc.price}}" {{/if}}>
                 </div>
                 <div class="form-group">
                     <label for="Rdesc">Enter A Description</label>
                         <textarea class="form-control" id="Rdesc" name="Rdesc" 
-                            placeholder="Enter a breif Description of your destination"></textarea>                    
+                            placeholder="Enter a breif Description of your destination">
+                            {{#if roomDoc}} {{roomDoc.desc}}  {{else}}  {{/if}}
+                            </textarea>                    
                 </div>
                 <div class="form-group">
                     <label for="Rlocation">Enter Location</label>
-                    <input type="text" id="Rlocation" class="form-control" name="Rlocation" placeholder="Enter Location">
+                    <input type="text" id="Rlocation" class="form-control" name="Rlocation" placeholder="Enter Location"
+                        {{#if roomDoc}} value="{{roomDoc.location}}" {{else}} value="" {{/if}}>
                 </div>
                 <div class="form-group">
                     <label for="Rpic">Upload Photo</label> <br>
@@ -34,7 +50,11 @@
                 </div>
 
                 <div>
+                    {{#if roomDoc}}
+                    <input type="submit" value="Update Room">
+                    {{else}}
                     <input type="submit" value="Add Room">
+                    {{/if}}
                 </div>
             </form>
         </div>

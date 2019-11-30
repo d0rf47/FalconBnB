@@ -1,3 +1,5 @@
+*****LEFT OFF USER UPDATE ROOM PIC NOT WORKING ALL OTHER DATA WORKING*******
+
 TO DOO
 1- ADD PROTECTED ROUTES,
     --> Fix user routes for Non Admin User

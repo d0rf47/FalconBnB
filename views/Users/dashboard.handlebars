@@ -98,11 +98,13 @@
             <nav>
                 <ul class="nav flex-column  mw-100">
                     <div class="row">
+                        {{#if user.host}}
                         <li class="nav-item col-lg center">                            
                             <form method="POST" action="/Rooms/Edit/:id">                            
                         <input class="btn nav-link" value="Edit Rooms" type="submit" style="color:#007bff; display:inline;">                               
                         </form>                                                              
                         </li>
+                        {{/if}}
                         <li class="nav-item col-lg center">
                         <a class="nav-link" href="#"> <object id="svg" data="/img/globe.svg"type="image/svg+xml"></object>           
                         Quick Trips</a>
@@ -112,7 +114,8 @@
                         <object id="svg" data="/img/about.svg"type="image/svg+xml"></object>What is Falcon B&B </a>
                         </li>
                         <li class="nav-item col-lg center">
-                        <a class="nav-link" href="https://www.airbnb.ca/help/home"><object id="svg" data="/img/faq.svg"type="image/svg+xml"></object>
+                        <a class="nav-link" href="https://www.airbnb.ca/help/home">
+                        <object id="svg" data="/img/faq.svg"type="image/svg+xml"></object>
                          Help Center</a>
                         </li>
                     </div>

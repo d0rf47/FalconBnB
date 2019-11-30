@@ -21,7 +21,7 @@ app.use(session({secret:"Key"}));
 //This is how you map your file upload to express
 app.use(fileup());
 //override with POST having ?_method=DELETE
-app.use(methodOverride('_method'));
+//app.use(methodOverride('_method'));
 app.use((req,res,next)=>
 {
     //This is a global variable that can be accessed by templates
