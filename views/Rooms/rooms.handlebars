@@ -50,7 +50,9 @@
 
           <!--Footer-->
           <div class="modal-footer justify-content-center">
-            <input type="button" class="btn btn-primary" value="Book Now">
+              <form action="/search/book/{{this._id}}" method="get">
+            <input type="submit" class="btn btn-primary" value="Book Now">
+            </form>
             <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
 
           </div>

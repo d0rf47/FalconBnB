@@ -25,4 +25,18 @@ router.post('/search', (req,res)=>
         .catch(err=>console.log(`Err: ${err}`));
 })
 
+router.get('/book/:id', (req,res)=>
+{
+    Room.findById(req.params.id)
+    .then((room)=>
+    {            
+        res.render('Rooms/Book',
+        {            
+            roomDoc : room
+        })
+    })
+    .catch(err=>console.log(`${err}`))
+})
+
+
 module.exports= router;

@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/CSS/book.css">
+<iframe id="bgVideo" src="https://r3---sn-tt1eln7l.googlevideo.com/videoplayback?expire=1575170359&ei=19ziXdetEKmphwb2y7CQBA&ip=167.86.122.155&id=o-ANaNaXBlrHyMgDPLN8MJyeFvPtX7J5B9dbDETEpp0HkZ&itag=22&source=youtube&requiressl=yes&mime=video%2Fmp4&ratebypass=yes&dur=29012.915&lmt=1570657482112234&fvip=3&fexp=23842630&c=WEB&txp=5535432&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cmime%2Cratebypass%2Cdur%2Clmt&sig=ALgxI2wwRgIhAIBI2dKsq3q3IPQ4LmPN7ZusKW-UolACNy6sqLAFcGphAiEAu-ZfF5AqXTNQfghzXtODBJFvvGU1AHtTT6yRiS1M4hg%3D&rm=sn-25gks7s&req_id=e607b39d0e78a3ee&ipbypass=yes&redirect_counter=2&cm2rm=sn-ni5f-tfbs7r&cms_redirect=yes&mip=199.7.157.30&mm=29&mn=sn-tt1eln7l&ms=rdu&mt=1575148705&mv=m&mvi=2&pl=24&lsparams=ipbypass,mip,mm,mn,ms,mv,mvi,pl&lsig=AHylml4wRQIgFYeScIJ9Kl12_vuFeL7Ab_bheSR-yrH0wq0Kapk5d2UCIQCeODpUbqW1baZHyBvZhORbdbRpQmv1wwIiHGXUE0gU2A==" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div id='pageWrapper'>
+    <div id='formWrapper'>
+        <form id="BookForm" method="POST" action="/search/book">
+                <div class="form-group ">
+                <h4>Confirm your Destination Details</h4>
+                <label for="where">Where</label>
+                    <input type="text" class="form-control" value="{{roomDoc.title}}">
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="checkIn">Check-In</label>
+                                <input  id="checkIn" type="date" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="checkOut">Check Out</label>
+                                <input id="checkOut" type="date" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                            <label class="btn btn-block" for="guestNum">Number of Guests</label>
+                                <div class="d-flex">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" 
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guests
+                                        </button>
+                                        <div id="guestNumber" class="dropdown-menu" aria-elledby="dropdownMenuButton">
+                                            <label class="dropdown-item" for="adults">Adults
+                                                <input name="adults" type="number" class="form-control " id="adults" placeholder="Adults">
+                                            </label>
+                                            <label class="dropdown-item" for="children">Children
+                                                <input name="children" type="number" class="form-control" id="children" placeholder="Children">
+                                            </label>
+                                            <label class="dropdown-item" for="infant">Infants
+                                            <input name="infant" type="number" class="form-control" id="infant" placeholder="0-3">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    <button id="searchSub" class="btn btn-success btn-block">Book</button>
+            </form>
+        </div>
+ </div>
+    

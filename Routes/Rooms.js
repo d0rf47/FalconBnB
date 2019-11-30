@@ -127,8 +127,7 @@ router.post('/Update/:id', authAccess, (req,res)=>
     let x = Math.random() * 10; 
     Room.findById(req.params.id)
         .then((room)=>
-        {
-            
+        {            
             room.title=      req.body.Rtitle;
             room.price=      req.body.pricePer;
             room.desc=      req.body.Rdesc;
