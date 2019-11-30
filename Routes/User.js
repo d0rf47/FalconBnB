@@ -8,7 +8,7 @@ const nodemailer = require('nodemailer');
 const sgTransport = require('nodemailer-sendgrid-transport');
 const User  = require('../Models/User');
 const mongoose =  require('mongoose');
-let errors =[];
+
 
 //used to validate Sengrid Account
 const options  = {
@@ -31,13 +31,12 @@ const validatePass = (pass) =>{
 //Routs Begin Here
 router.get("/registration", (req,res) => 
 {   
-    res.render('Users/registration',{err:errors});
+    res.render('Users/registration');
     
 })
 
 router.post('/registration', (req,res)=>{
-    
-    const errs =[];
+    let errors =[];
     const msg = `Welcome ${req.body.first_name} ${req.body.last_name} to Falcon BnB your Account UserName is : ${req.body.email1}`
     const email = {
         to: `${req.body.email1}`,
@@ -61,7 +60,8 @@ router.post('/registration', (req,res)=>{
     
     if(errors.length > 0) 
     {
-        res.render('Users/registration',{
+        res.render('Users/registration',
+        {
             err:errors            
         });
         
@@ -90,18 +90,24 @@ router.post('/registration', (req,res)=>{
             { 
                 console.log(err) 
             } 
-            
+            else
+            {
+                res.redirect("dashboard");
+            }
         });   
         })
         .catch((err)=>{
-            errors.push(err);            
+            errors.push("Account already exist with that email");            
             console.log(`User not added Error: ${errors}`)                
-            res.redirect('registration')
+            res.render('Users/registration',
+            {
+                err:errors            
+            });
             
         })              
     }
-    errors=[];    
-    res.redirect("dashboard")           
+    
+    
 })
 
 router.get("/dashboard", (req,res)=>{
@@ -111,12 +117,7 @@ router.get('/login',(req,res)=>
 {
     res.render('Users/login');
 })
-/* ***************************
-    Error WHEN USER UPDATES LOCATION TO BECOME HOST THE PASSWORD IS SOMEHOW
-    CORRUPTED AND LOGIN WILL ALWAYS FAIL AFTER THIS HAS BEEN DONE, ASK 
-    KADEEM WHY/\HOW THIS EVEN HAPPENING MOST LIKELY IN THE .SAVE() 
-    FUNCTION TO UPDATE THE NEW DATA IN MONGODB
-*/
+
 router.post('/login', (req,res)=>
 {
     const errors = [];

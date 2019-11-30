@@ -15,7 +15,9 @@
     <div class="row">
         <div class="container room col-sm">
             <div class="container-fluid img-container"> 
-                <img src="/uploads/{{this.roomPic}}" class="roomPics">
+                <a data-toggle="modal" data-target="#a{{this._id}}">
+                    <img src="/uploads/{{this.roomPic}}" class="roomPics">
+                </a>
             </div>
                 <div>
                     <h1>{{this.title}} </h1>
@@ -25,5 +27,38 @@
                 </div>
         </div>
     </div>
+
+    <div class="modal fade" id="a{{this._id}}" tabindex="-1" role="dialog" aria-labelledby="{{this.title}}" aria-hidden="false">
+      <div class="modal-dialog modal-md" role="document">
+
+        <!--Content-->
+        <div class="modal-content">
+
+          <!--Body-->
+          <div class="modal-body">
+
+            <div class="embed-responsive z-depth-1-half">
+                <img class="img-fluid" src="/uploads/{{this.roomPic}}">
+                <h2 class="modalHead">{{this.title}}</h2>
+                    <p>
+                        {{this.desc}}
+                    </p>
+                    <p>{{this.price}}</p>
+            </div>
+
+          </div>
+
+          <!--Footer-->
+          <div class="modal-footer justify-content-center">
+            <input type="button" class="btn btn-primary" value="Book Now">
+            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+
+          </div>
+
+        </div>
+        <!--/.Content-->
+        </div>
+        </div>
+
     {{/each}}
 </section>

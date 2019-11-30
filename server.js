@@ -13,6 +13,7 @@ const dbURL = `mongodb+srv://${process.env.mbk}:${process.env.mbTok}@falconbnb-p
 const mainRouter =  require('./Routes/General')
 const userRouter =  require('./routes/User');
 const RoomRouter =  require('./Routes/rooms');
+const searchRouter = require('./Routes/Search');
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
@@ -31,6 +32,7 @@ app.use((req,res,next)=>
 app.use('/', mainRouter);
 app.use("/user", userRouter);
 app.use("/rooms", RoomRouter);
+app.use('/search', searchRouter);
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
