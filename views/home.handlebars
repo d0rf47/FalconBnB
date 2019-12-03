@@ -10,11 +10,9 @@
                 <label for="where">Where</label>
                     <select name="where" id="where" class="mdb-select md-form form-control">
                         <option value="" disabled selected> Select an Option </option> 
-                        <option value="Toronto">Toronto</option>
-                        <option value="Ottawa">Ottawa</option>
-                        <option value="Vancouver">Vancouver</option>
-                        <option value="Montreal">Montreal</option>
-                        <option value="Saskatoon">Saskatoon</option>
+                        {{#each rooms}}
+                            <option value="{{this.location}}">{{this.location}}</option>
+                            {{/each}}                                                
                     </select>
                 </div>
                 <div class=" formgroup">
