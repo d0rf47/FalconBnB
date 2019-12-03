@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="/CSS/Dashboard.css">
 <link rel="stylesheet" href="/CSS/home.css">
 {{#if err}}
-
 <link rel="stylesheet" href="/CSS/errors.css">
     <div id="LogErr">
     <div id="err" class="display-1 blockquote text-center">
@@ -28,7 +27,9 @@
                     </div>  
     </div>
 {{/if}}
-
+{{#if msg}}
+{{msg}}
+{{/if}}
 <div id="welcome" class="display-1 blockquote text-center">
 <h1>Welcome  
     {{#if user }}
@@ -124,7 +125,7 @@
     <div id="personal" class="divs border">
         <header>
             <h3> Welcome to your FalconB&B Page </h3>
-             </header>
+             </header>                          
         <p style="display:inline; margin-left:5%">This is your Personal Dashboard </p>
         <p>Here is where you can find and edit all your personal information</p>
         <dl class="row">
@@ -154,3 +155,14 @@
 </div>
 </section>
 
+{{#if stays}}
+                {{#each stays}}
+                <div id='trips'>
+                    Your Trips
+                    <p>Destination : {{this.destination}}</p>
+                    <p>From: {{this.date.start}}  To:  {{this.date.end}}</p>
+                    <p>Guests: {{this.guests}}</p>
+                </div>
+                {{/each}}
+            {{/if}}
+</section>

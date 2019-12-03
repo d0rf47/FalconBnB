@@ -12,9 +12,9 @@
 
 <section id="roomsMain" class="container">
     {{#each rooms}}
-    <div class="row">
-        <div class="container room col-sm">
-            <div class="container-fluid img-container"> 
+    {{!-- <div class="row"> --}}
+        {{!-- <div class=" room "> --}}
+            <div class="img-container"> 
                 <a data-toggle="modal" data-target="#a{{this._id}}">
                     <img src="/uploads/{{this.roomPic}}" class="roomPics">
                 </a>
@@ -25,8 +25,8 @@
                     <h3>{{this.price}}  </h3>   
                     <h4>{{this.location}} </h4> 
                 </div>
-        </div>
-    </div>
+        {{!-- </div> --}}
+    {{!-- </div> --}}
 
     <div class="modal fade" id="a{{this._id}}" tabindex="-1" role="dialog" aria-labelledby="{{this.title}}" aria-hidden="false">
       <div class="modal-dialog modal-md" role="document">

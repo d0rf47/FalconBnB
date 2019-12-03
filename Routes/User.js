@@ -8,7 +8,8 @@ const nodemailer = require('nodemailer');
 const sgTransport = require('nodemailer-sendgrid-transport');
 const User  = require('../Models/User');
 const mongoose =  require('mongoose');
-
+const Stays =  require('../Models/Stays');
+const authAccess =  require('../middleWare/Authentication');
 
 //used to validate Sengrid Account
 const options  = {
@@ -110,8 +111,19 @@ router.post('/registration', (req,res)=>{
     
 })
 
-router.get("/dashboard", (req,res)=>{
-    res.render('Users/dashboard');
+router.get("/dashboard", authAccess, (req,res)=>
+{
+    let user = req.session.userInfo;
+    Stays.find({owner:req.session.userInfo.email})
+        .then((stays)=>
+        {            
+            res.render('Users/dashboard',
+            {
+                stays:stays
+            });
+        })
+        .catch(err=>console`${err}`)
+    
 })
 router.get('/login',(req,res)=>
 {

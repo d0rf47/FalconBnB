@@ -48,7 +48,8 @@ h3
 
 .roomPics
 {
-    max-width: 500px;
+    max-width: 375px;
+    max-height: 400px;
     width:auto;
     height: auto;
 }
