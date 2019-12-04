@@ -31,11 +31,10 @@ form input{
     float:right;
 }
 
-#promo{
-    
+#promo
+{    
     background:transparent;
     padding:2rem;
-
 }
 #bannerContent{
     border:black solid 1px;
