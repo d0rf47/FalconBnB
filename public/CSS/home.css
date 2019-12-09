@@ -23,9 +23,6 @@
     align-items: center;
     width: 85%;
 }
-form input{
-    width:80%;
-}
 
 #searchSub{
     float:right;
@@ -189,16 +186,6 @@ form input{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.carousel-caption
-{
-    color: white;
-    font-size: 20px;
-    text-shadow:
-        0.07em 0 black,
-        0 0.07em black,
-        -0.07em 0 black,
-        0 -0.07em black;
-    }
 
     
 @media only screen and (min-width: 1500px){

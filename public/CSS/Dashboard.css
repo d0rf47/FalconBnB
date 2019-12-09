@@ -35,8 +35,11 @@ header{
 #notifications
 {        
     margin-top: 1vh;
-    padding-bottom: 5rem;
-    
+    padding-bottom: 5rem;   
+}
+#QuickLinks form input
+{
+    width:80%;
 }
 #admin
 {
@@ -49,7 +52,19 @@ header{
     width:auto;
     height: auto;
 }
-
+.Stays
+{
+    text-align: center;
+    background: chartreuse;
+}
+#AllTrips
+{
+    border: darkgray solid 1px;
+}
+#AllTrips span
+{
+    font-weight: bold;
+}
 
 @media only screen and (max-width: 1000px)
 {
@@ -67,4 +82,30 @@ header{
         margin-top: 0;
         padding-bottom: 0;       
     }
+}
+#Uid
+{
+    font-weight: bold;
+    font-size: 120%;
+}
+#bioDeetz
+{
+    text-align: center;
+}
+#bioDeetz span
+{
+    font-weight: bold;
+}
+
+
+@media (min-width: 992px)
+{
+.col-lg 
+{
+    -ms-flex-preferred-size: 0;
+     flex-basis:unset; 
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
 }

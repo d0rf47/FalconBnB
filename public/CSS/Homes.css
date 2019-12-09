@@ -21,16 +21,16 @@
     padding: 32px;
     margin-left: 2rem;
 }
+#searchTitle
+{
+    font-weight: bolder;
+    text-align: center;
+    padding-bottom:1rem;
+}
 .form-control
 {    
-    align-items: center;
-    width: 85%;
+    align-items: center;    
 }
-form input
-{
-    width:80%;
-}
-
 #searchSub
 {
     float:right;
@@ -162,41 +162,39 @@ h3
 {
     height:675px;
     max-width:100%;
-    justify-content: center;
-    position:relative;
-}
-#c1
-{
-    background-image: url("/img/carosel1.jpg");
-}
-#c2
-{
-    background-image: url("/img/car1.jpg");
-    background-size:cover;
-}
-
-.center 
-{
-     margin: 0 auto;
-     width:675px;
+    text-align: center;
+    display: block;
 }
 
 .carousel-indicators
 {
     color:black;
 }
-.carStyle
+.carousel-caption
 {
-    border:solid red 1px;
-    position:relative;
-    left: 50%;
-    transform: translateX(-50%);
-    background-size: cover;
-    height:80%;
-    max-width: 75%;    
-    background-repeat: no-repeat;
+    color: white;
+    font-size: 20px;
+    text-shadow:    
+        0.07em 0 black,
+        0 0.07em black,
+        -0.07em 0 black,
+        0 -0.07em black;    
 }
-
+.carStyle
+{            
+    position:relative;    
+} 
+.carStyle img, video 
+{    
+    max-width: 675px;
+    max-height: 500px;
+    height:500px;
+    width:auto;
+}
+.center
+{
+    max-width: 675px;
+}
 #overlay
 {
     position: relative;
@@ -211,9 +209,7 @@ h3
     align-self: center;    
 }
 
-
-
-    
+/* Media Queries     */
 @media only screen and (min-width: 1500px){
     .col-sm  div
     {
@@ -224,10 +220,7 @@ h3
     {        
         text-align: center;
     }
-    .container
-    {
-        max-width: 100%;
-    }
+    
     #promoContent
     {
         text-align: center;
@@ -239,11 +232,7 @@ h3
     #apply
     {
         margin-left:-25%;
-    }
-    object
-    {
-        margin-left:25%;
-    }
+    }    
     #promoContent
     {
         width:auto;
@@ -251,21 +240,38 @@ h3
     #discover
     {
         text-align: center;
-    }
-    #about, .carousel-item , .img-cont ,.carStyle
+    }    
+    .carStyle img, video 
     {
-        border:black solid 1px;
-        max-height: unset;        
-        padding:3rem;
-        max-width: unset;        
+        max-width: 1000px;    
+        height: auto;
+        width: auto;
     }
-
     .center
     {
         width:100%;
         padding: 2%;
     }
-
+    #searchWrapper
+    {
+        text-align: center;
+        justify-content: center;
+    }
+    #quickSearch
+    {        
+        display: inline-block;
+        
+        text-align: center;
+        margin:0 0;        
+    }
+    #searchSub
+    {
+        margin:0 auto;
+        display: block;
+        float: none;
+        position: relative;
+        width: 50%;        
+    }
 }
 
 @media only screen and (max-width: 1000px)
@@ -277,10 +283,17 @@ h3
     }
     #quickSearch
     {
-        text-align: left;
+        text-align: center;
         display: inline-block;
         width:80%;
         margin:0 0;        
     }
-    
+    #searchSub
+    {
+        margin:0 auto;
+        display: block;
+        float: none;
+        position: relative;
+        width: 50%;        
+    }
 }
