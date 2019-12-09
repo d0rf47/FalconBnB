@@ -21,11 +21,11 @@ const newStaySchema =  new Schema
     {
         start:
         {
-            type:Date
+            type:String
         },
         end:
         {
-            type:Date
+            type:String
         }
     },
     guests:

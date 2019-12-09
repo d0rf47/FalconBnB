@@ -1,0 +1,92 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Sulphur Point', sans-serif;
+}   
+body
+{    
+    background: url(/img/formBGhome.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;        
+    z-index: -1;
+}
+
+.form-control::placeholder{
+    font-size:0.8rem;
+}
+#mainH{
+    padding: 1rem;
+    margin-bottom: 2rem;
+    
+}
+#links{
+    font-weight: bold;
+    display:inline-flex;
+    flex-direction: row;
+    float:right;
+}
+input:hover
+{
+    text-decoration: none;    
+}
+a{
+    margin:0 1rem;
+    display:inline;
+}
+
+#logo{
+    width: 65px;
+    height: 65px;
+    display:inline-block;
+}
+
+#close{
+    float: left;
+    
+}
+#modalTitle{
+    float: right;
+}
+#mainFoot{
+    padding-bottom: 1rem;
+    margin-top:10%;
+    text-align: center;
+    background:white;
+    opacity:0.75;   
+}
+
+#sticky{
+    position: sticky;
+    float:right;
+    margin-right: 1%;
+    bottom:2em;
+    z-index: 100;
+    
+}
+#sticky >input{
+    font-size:75%;
+}
+#svg{
+    float:left;
+}
+#dob{
+    width: 100%;
+}
+.jumbotron
+{
+    z-index: -1;
+}
+@media only screen and (max-width: 1000px)
+{
+    #moreInfo
+    {
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 1500px)
+{
+    
+}

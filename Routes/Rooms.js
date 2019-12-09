@@ -26,7 +26,11 @@ router.get("/rooms", (req,res)=>
 
 router.get('/addRoom',authAccess, (req,res)=>
 {
-    res.render('Rooms/AddRoom');
+    let msg = 'Add New Room'
+    res.render('Rooms/AddRoom',
+    {
+        message:msg
+    });
 })
 
 router.post('/addRoom',authAccess, (req,res)=>

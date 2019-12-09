@@ -8,14 +8,13 @@
 {{/if}}
 
 {{#if message}}
-    <div>
-        {{message}}
+    <div style="text-align: center;">
+        <h2>{{message}} </h2>   
     </div>
 {{/if}}    
 <div class="container" id="mainWrapper">
     <div class="container" id="formContainer">
-        <div class="container" id="InnerForm">
-            <h1>Add New Room</h1>
+        <div class="container" id="InnerForm">            
             {{#if roomDoc}}
             <form id="AddRoom" method="POST" action="/Rooms/Update/{{roomDoc._id}}" enctype="multipart/form-data">      
             {{else}}

@@ -14,16 +14,17 @@
     {{#each rooms}}
     {{!-- <div class="row"> --}}
         {{!-- <div class=" room "> --}}
-            <div class="img-container"> 
+            <div class="img-container container-fluid"> 
                 <a data-toggle="modal" data-target="#a{{this._id}}">
-                    <img src="/uploads/{{this.roomPic}}" class="roomPics">
+                    <img src="/uploads/{{this.roomPic}}" class="roomPics hover-shadow">
                 </a>
-            </div>
+            
                 <div>
                     <h1>{{this.title}} </h1>
                     <h2>{{this.desc}}  </h2>
-                    <h3>{{this.price}}  </h3>   
+                    <h3>${{this.price}}  </h3>   
                     <h4>{{this.location}} </h4> 
+                </div>
                 </div>
         {{!-- </div> --}}
     {{!-- </div> --}}
@@ -43,7 +44,7 @@
                     <p>
                         {{this.desc}}
                     </p>
-                    <p>{{this.price}}</p>
+                    <p> ${{this.price}} Per Night</p>
             </div>
 
           </div>
@@ -64,3 +65,4 @@
 
     {{/each}}
 </section>
+</div>

@@ -4,6 +4,7 @@
   "description": "nodeJS Project using handlebars & mongoDB to recreate AirBnB's Web app",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "start"
   },
   "repository": {
@@ -24,7 +25,7 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.1.6-alpha.6",
     "express-handlebars": "^3.1.0",
-    "express-session": "^1.17.0",    
+    "express-session": "^1.17.0",
     "method-override": "^3.0.0",
     "mongoose": "^5.7.7",
     "nodemailer": "^6.3.1",

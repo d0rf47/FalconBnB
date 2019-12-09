@@ -1,8 +1,15 @@
 <link rel="stylesheet" href="/CSS/book.css">
-<iframe id="bgVideo" src="https://r3---sn-tt1eln7l.googlevideo.com/videoplayback?expire=1575170359&ei=19ziXdetEKmphwb2y7CQBA&ip=167.86.122.155&id=o-ANaNaXBlrHyMgDPLN8MJyeFvPtX7J5B9dbDETEpp0HkZ&itag=22&source=youtube&requiressl=yes&mime=video%2Fmp4&ratebypass=yes&dur=29012.915&lmt=1570657482112234&fvip=3&fexp=23842630&c=WEB&txp=5535432&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cmime%2Cratebypass%2Cdur%2Clmt&sig=ALgxI2wwRgIhAIBI2dKsq3q3IPQ4LmPN7ZusKW-UolACNy6sqLAFcGphAiEAu-ZfF5AqXTNQfghzXtODBJFvvGU1AHtTT6yRiS1M4hg%3D&rm=sn-25gks7s&req_id=e607b39d0e78a3ee&ipbypass=yes&redirect_counter=2&cm2rm=sn-ni5f-tfbs7r&cms_redirect=yes&mip=199.7.157.30&mm=29&mn=sn-tt1eln7l&ms=rdu&mt=1575148705&mv=m&mvi=2&pl=24&lsparams=ipbypass,mip,mm,mn,ms,mv,mvi,pl&lsig=AHylml4wRQIgFYeScIJ9Kl12_vuFeL7Ab_bheSR-yrH0wq0Kapk5d2UCIQCeODpUbqW1baZHyBvZhORbdbRpQmv1wwIiHGXUE0gU2A==" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<video autoplay loop id="bgVid">
+    <source src="/media/bgbook.mp4" type="video/mp4">
+</video>
 <div id='pageWrapper'>
     <div id='formWrapper'>
-        <form id="BookForm" method="POST" action="/search/book/:{{this._id}}">
+        {{#if err}}
+        <div id="errs">            
+            {{err}}            
+        </div>  
+        {{/if}}
+        <form id="BookForm" method="POST" action="/search/book/{{roomDoc._id}}">
                 <div class="form-group ">
                 <h4>Confirm your Destination Details</h4>
                 <label for="where">Where</label>

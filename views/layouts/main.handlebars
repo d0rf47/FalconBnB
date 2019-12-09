@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <title>FalconB&B</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/CSS/mainStyle.css">    
+    <link rel="stylesheet" href="/CSS/mainStyle.css">     
     <link rel="stylesheet" href="/CSS/login.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Sulphur+Point&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
@@ -23,8 +24,8 @@
       <a class="nav-link" href="/rooms/rooms"> Find a Room </a>
       <a class="nav-link" href="/user/dashboard"> My Account  </a>    
       <a class="nav-link" href="/rooms/addRoom"> Add Room  </a>      
-      <form action="/Rooms/Edit/:id" method="POST">
-      <input  class="btn btn-link" value="Edit Rooms " type="submit">  
+      <form action="/Rooms/Edit/:id" method="POST" style="margin: 0 1rem;">
+      <input  class="btn btn-link" value="Edit Rooms" type="submit" style="font-weight: bold;">  
       </form>
       <a class="nav-link" href="/user/logout"> Logout </a>                              
       {{else if user}}      
@@ -221,12 +222,12 @@
     {{{body}}}
 
 <div id="sticky" class="fixed-bottom"><button id="moreInfo" class="btn btn-light" type="button" data-toggle="modal" data-target="infoModal"> 
- <object id="svg" data="img/icon.svg"type="image/svg+xml"></object>Terms, Privacy, About Us & More </button>
+ <object id="svg" data="/img/icon.svg"type="image/svg+xml"></object>Terms, Privacy, About Us & More </button>
  </div>
   
   <!---footer-->
  <footer id="mainFoot">
-    <div id="socials" class="container">
+    <div id="socials">
       <h6>Connect with Us</h6>
       <br>
         <ul class="nav nav-pills justify-content-center">
@@ -269,7 +270,7 @@
  
  
 </body>
-<script src="../main.js"></script>
+<script src="/main.js"></script>
 
 
 

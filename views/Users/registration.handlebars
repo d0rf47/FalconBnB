@@ -1,19 +1,23 @@
 <link rel="stylesheet" href="/CSS/errors.css">
 
       <div class="display-1 blockquote text-center" >
-      <h1>Error User Registration Failed!</h1>
+      <h1>{{msg}}</h1>
       {{#each err}} <div id='err' >{{this}}</div> {{/each}}
       </div>
 
 <div id='form-cont' class="container">
+      {{#if UserDoc}}
+      <form id="requestacallform" method="POST" name="requestacallform" action="/User/UpdateEdit/{{UserDoc._id}}" class="was-validated"
+                   enctype="multipart/form-data">      
+      {{else}}
     <form id="requestacallform" method="POST" name="requestacallform" action="/user/registration" class="was-validated">
-
+      {{/if}}
                                 <div class="form-group">
                                     <div class="input-group">                               
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="email1" type="email" class="form-control " placeholder="Email" name="email1" required 
-                                    
-                                    title="Must be a valid Email Address"/>
+                                    <input id="email1" type="email" class="form-control " placeholder="Email" name="email1" required                                     
+                                    title="Must be a valid Email Address"
+                                          {{#if UserDoc}} value="{{UserDoc.email}}"{{/if}}/>
                                        <div class="valid-feedback">Valid.</div>
                                       <div class="invalid-feedback">Please fill out this field.</div>                               
                                     </div>
@@ -21,7 +25,8 @@
                               <div class="form-group">
                                     <div class="input-group">                               
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="first_name" type="text" class="form-control" placeholder="First Name" name="first_name"/ required>
+                                    <input id="first_name" type="text" class="form-control" placeholder="First Name" name="first_name"
+                                          {{#if UserDoc}} value="{{UserDoc.first}}"{{/if}} required />
                                     <div class="valid-feedback">Valid.</div>
                                       <div class="invalid-feedback">Please fill out this field.</div>  
                                     </div>
@@ -29,17 +34,27 @@
                                 <div class="form-group">
                                     <div class="input-group">                               
                                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                    <input id="last_name" type="text" class="form-control" placeholder="Last Name" name="last_name"/ required>
+                                    <input id="last_name" type="text" class="form-control" placeholder="Last Name" name="last_name"
+                                          {{#if UserDoc}} value="{{UserDoc.last}}"{{/if}} required />
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>  
                                     </div>
+                              </div>                              
+                              {{#if UserDoc}}
+                                                                  
+                                <div class="form-group">
+                                    <div class="input-group">                               
+                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                    <input id="proPic" type="file" class="form-control" name="proPic" />                                                                          
+                                    </div>
                               </div>
+                              {{else}}
                               <div class="form-group">
                                     <div class="input-group">                               
                                     <span class="input-group-addon"><i class="fa fa-group"></i></span>     
                                     <div id="bday">
                                     <label for="dob">Enter Birth date</label>
-                                    <input id="dob" type="date" class="form-control"  name="dob" required/>                                     
+                                    <input id="dob" type="date" class="form-control"  name="dob" required />
                                       <div class="valid-feedback">Valid.</div>
                                       <div class="invalid-feedback">Please fill out this field.</div>  
                                     </div>
@@ -63,8 +78,9 @@
                                     <div class="invalid-feedback">Please fill out this field.</div>  
                                     </div>
                               </div>
-                              <div class="modal-footer">
+                        {{/if}}                                                
                     <button id='register' type="submit" class="btn btn-success">Submit</button>
                         </form>                        
-                  </div>
-</div>
+            </div>
+                  
+                  

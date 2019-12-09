@@ -41,8 +41,54 @@ router.get('/book/:id',authAccess, (req,res)=>
 router.post('/book/:id', authAccess, (req,res)=>
 {
     let msg;
-    let tGuests =  req.body.adults + req.body.children + req.body.infant;
+    let tGuests = Number(req.body.adults)+ Number(req.body.children) + Number(req.body.infant);
+    
     const errors=[];
+    console.log(`${req.body.checkOut}`)
+    if(req.body.destination == null)
+    {
+        errors.push("Must Include Destination")
+    }
+
+    if(req.body.price == null)
+    {
+        errors.push("Must Include Original Price")
+    }
+    if(req.body.location == null)
+    {
+        errors.push("Must Include Location")
+    }
+    if(tGuests < 1)
+    {
+        errors.push("Must Include Number of guests")
+    }
+    if(req.body.destination == null)
+    {
+        errors.push("Must Include Destination")
+    }
+    if(req.body.checkIn == undefined)
+    {
+        errors.push("Must Include Check-in Check-Out Dates")
+    }    
+    if(req.body.checkOut == undefined)
+    {
+        errors.push("Must Include Check-in Check-Out Dates")
+    }
+    if(errors.length > 0)
+    {
+        Room.findById(req.params.id)
+            .then((room)=>
+            {            
+                res.render('Rooms/Book',
+                    {            
+                        roomDoc : room,
+                        err:errors
+                    })
+            })
+            .catch(err=>console.log(`${err}`))
+    }
+    else
+    {
     const newStay = 
     {
         destination:req.body.destination,
@@ -64,10 +110,11 @@ router.post('/book/:id', authAccess, (req,res)=>
             console.log('Book Successful')
             res.render('Users/dashboard',
             {
-                msg:msg
+                message:msg
             })
         })
         .catch(err=>console.log(`Book Err :${err}`))
-})
+    };
+});
 
 module.exports= router;

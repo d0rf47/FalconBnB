@@ -11,14 +11,22 @@ const fileup = require("express-fileupload");
 require("dotenv").config({path:'./config/Keys.env'});
 const dbURL = `mongodb+srv://${process.env.mbk}:${process.env.mbTok}@falconbnb-ppoyi.gcp.mongodb.net/FalconBnB?retryWrites=true&w=majority`;
 const mainRouter =  require('./Routes/General')
-const userRouter =  require('./routes/User');
-const RoomRouter =  require('./Routes/rooms');
+const userRouter =  require('./Routes/Users');
+const RoomRouter =  require('./Routes/Rooms');
 const searchRouter = require('./Routes/Search');
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
-app.use(session({secret:"Key"}));
+app.use (
+    session ({
+       secret: "Key",
+       saveUninitialized: false,       
+       resave:false,
+       rolling: true,
+       cookie: { maxAge: 600000 }
+    })
+ );
 //This is how you map your file upload to express
 app.use(fileup());
 //override with POST having ?_method=DELETE
@@ -38,12 +46,14 @@ app.set('view engine', 'handlebars');
 
 
 mongoose.connect(dbURL,{ useUnifiedTopology: true, useNewUrlParser: true })
-    .then(()=>{
+    .then(()=>
+    {
      console.log('Database Connected');
 
- })
-    .catch(err=>{
-        console.log(`Connection Error: ${err}`);
+    })
+    .catch(err=>
+    {
+    console.log(`Connection Error: ${err}`);
 })
 
 

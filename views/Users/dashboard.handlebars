@@ -27,10 +27,10 @@
                     </div>  
     </div>
 {{/if}}
-{{#if msg}}
-{{msg}}
-{{/if}}
 <div id="welcome" class="display-1 blockquote text-center">
+    {{#if message }}
+        {{message}}
+    {{/if}}
 <h1>Welcome  
     {{#if user }}
     {{user.email}}
@@ -67,18 +67,18 @@
         </div>
             <div id='profileContainer' class='d-flex justify-content-center'>
                 <div class="imgContainer hover-shadow" >
-                    <img id="profilePic" src="/img/adventures.jpg"  class="img-thumbnail mw-100">
+                    <img id="profilePic" src="/uploads/{{user.proPic}}"  class="img-thumbnail mw-100"  style="max-height:215px;">
                 </div>        
             </div>
         <div class="divs border">
             <header><h3 class="display-5"> Verified Info <object id="svg" data="/img/verified.svg"type="image/svg+xml"></object> </H3></header>
-            <div id='bio' class="divs">
+            <div id='bioDeetz' class="divs">
                 {{#if user}}
                 <div>
-                Name: {{user.first}} {{user.last}}
+                <span>Name: </span> {{user.first}} {{user.last}}
                  </div>
                 <div>
-                Born: {{user.dob}}
+               <span> Born: </span> {{user.dob}}
                 </div>
                 <div id="geoData">
                     <h2>Location</h2>
@@ -92,20 +92,32 @@
             <div class="d-flex justify-content-center"><button class="btn btn-primary btn-lg">Verify Account</button></div>
                 {{/if}}
             </div>
-            <div class="d-flex justify-content-center"><button class="btn btn-info btn-lg">Edit Profile</button></div>
+            <div class="d-flex justify-content-center"><button class="btn btn-info btn-lg">
+            <form action="/User/Edit/{{user._id}}" method="POST" style="margin: 0 1rem;">
+      <input  class="btn" value="Edit Profile" type="submit" style="font-weight: bold;">  
+      </form>
+      </button></div>
         </div>
-        <div class="divs border">
+        <div id='QuickLinks' class="divs border">
             <header><h3 class="display-5">Quick Links</h3> </header>
             <nav>
                 <ul class="nav flex-column  mw-100">
                     <div class="row">
-                        <li class="nav-item col-lg center">
+                        {{#if user.host}}
+                        <li class="nav-item col-lg center">                            
                             <form method="POST" action="/Rooms/Edit/:id">                            
                         <input class="btn nav-link" value="Edit Rooms" type="submit" style="color:#007bff;">                         
                         </form>                                                              
                         </li>
+                        {{else}}
+                        <li class="nav-item col-lg center">                            
+                            <form method="get" action="/User/Trips/:id">                            
+                        <input class="btn nav-link" value="My Stays" type="submit" style="color:#007bff;">                         
+                        </form>                                                              
+                        </li>
+                        {{/if}}
                         <li class="nav-item col-lg center">
-                        <a class="nav-link" href="#"> <object id="svg" data="/img/globe.svg"type="image/svg+xml"></object>           
+                        <a class="nav-link" href="/rooms/rooms"> <object id="svg" data="/img/globe.svg"type="image/svg+xml"></object>           
                         Quick Trips</a>
                         </li>
                         <li class="nav-item col-lg center">
@@ -156,13 +168,26 @@
 </section>
 
 {{#if stays}}
+<section class="container" class="Stays" style="text-align: center;">
+    <h6>My Trips </h6>
+    <div id="AllTrips">
                 {{#each stays}}
                 <div id='trips'>
-                    Your Trips
-                    <p>Destination : {{this.destination}}</p>
-                    <p>From: {{this.date.start}}  To:  {{this.date.end}}</p>
-                    <p>Guests: {{this.guests}}</p>
+                    
+                    <p> <span>Destination: </span> {{this.destination}}</p>
+                    <p> <span>From: </span> {{this.date.start}} <span> To: </span>  {{this.date.end}}</p>
+                    <p> <span> Guests:  </span> {{this.guests}}</p>
                 </div>
                 {{/each}}
-            {{/if}}
+        </div>
+            
 </section>
+{{else}}
+<section class="container" class="Stays" style="text-align: center;">
+    <div>
+        <h6>My Trips</h6>
+        <p>You have not booked any trips with FalconB&B <br>
+            All trips will appear Here</p>
+    </div>
+</section>
+{{/if}}
