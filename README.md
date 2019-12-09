@@ -6,4 +6,4 @@
 #### Reproduce AirBnB's Webpage with all back end functionality.
 #### Users must be able to login, Create Accounts Upload & browse rooms
 
-#### Live Link : www.falconbnb.herokuapp.com
+#### Live Link : https://falconbnb.herokuapp.com/
