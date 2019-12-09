@@ -1,0 +1,87 @@
+ body 
+{
+    max-width: 100%;
+    overflow-x: hidden;
+    background:white; 
+}
+#roomsMain
+{
+    text-align: center;
+}
+#title
+{        
+    display: inline;
+ 
+}
+h1
+{
+    padding: 1rem;    
+}
+h2
+{
+    
+    left:4%;
+    font-size:150%;
+}
+h3
+{
+    
+    text-indent: 3%;
+    font-size: 125%;
+}
+.hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+.vid
+{
+    max-height: 250px;
+}
+
+#dest
+{    
+    font-size: 20pt;
+}
+
+.video-fluid
+{
+    margin-top: -10rem;      
+}
+
+#contentCont
+{
+    text-align: center;
+    margin-top:-10rem;
+}
+
+.roomPics
+{
+    max-width: 375px;
+    max-height: 400px;
+    width:auto;
+    height: auto;
+    border: solid lightgray 1px;
+}
+.img-container
+{    
+    width: 40%;
+    margin-bottom: 2rem;    
+}
+.img-container a, img
+{
+    display: inline;
+}
+.hover-shadow:hover 
+{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media only screen and (max-width: 1000px)
+{
+    #title{
+        font-size: 110%;
+    }
+    nav{
+        display: inline;
+    }
+}
+

@@ -1,0 +1,111 @@
+body{
+    background: #ffffff;
+    overflow-x: hidden;
+}
+.divs{
+    
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+#personal
+{
+    padding-bottom: 23%;
+}
+.border{
+    border: black solid 1px;
+}
+.imgContainer{
+    max-width: 250px;
+    max-height: 250px;
+}
+.color{
+    background: #edefed;
+}
+header{
+    background-origin: padding-box;
+    border-radius: 2px;
+    background: #edefed;
+}
+
+.logo{
+    max-width: 25px;
+    max-height: auto;
+}
+
+#notifications
+{        
+    margin-top: 1vh;
+    padding-bottom: 5rem;   
+}
+#QuickLinks form input
+{
+    width:80%;
+}
+#admin
+{
+    text-align: center;
+    border:black solid 1px;
+}
+.roomPics
+{
+    max-width: 500px;
+    width:auto;
+    height: auto;
+}
+.Stays
+{
+    text-align: center;
+    background: chartreuse;
+}
+#AllTrips
+{
+    border: darkgray solid 1px;
+}
+#AllTrips span
+{
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 1000px)
+{
+    .center
+    {
+        margin:0 25%;             
+    }
+    .ddClass
+    {
+        text-indent: 0;
+        text-align: center;
+    }
+    #notifications
+    {               
+        margin-top: 0;
+        padding-bottom: 0;       
+    }
+}
+#Uid
+{
+    font-weight: bold;
+    font-size: 120%;
+}
+#bioDeetz
+{
+    text-align: center;
+}
+#bioDeetz span
+{
+    font-weight: bold;
+}
+
+
+@media (min-width: 992px)
+{
+.col-lg 
+{
+    -ms-flex-preferred-size: 0;
+     flex-basis:unset; 
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+}

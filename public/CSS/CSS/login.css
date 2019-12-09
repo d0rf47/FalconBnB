@@ -1,0 +1,33 @@
+#logInCont
+{
+    border-radius: 15px;
+    max-width: 30%;
+    background: white;          
+    text-align: center;
+    padding: 2rem 0;        
+}
+
+#logInCont div{
+    max-width: 100%;
+    vertical-align: center;
+    
+    
+}
+#logInCont .form-control{
+    width:100%;    
+}
+
+#logInCont div input
+{
+    text-align: center;
+    display: block;
+    margin: auto;
+    max-width: 65%;
+}
+#LinButt{    
+    text-align: center;   
+}
+#logButtCont
+{    
+    text-align: center;
+}
